@@ -1,0 +1,26 @@
+* {
+    font: 1em/1.25 Arial, sans-serif;
+}
+
+.footer {
+    position: relative;
+    border-top: 2px solid #eee;
+    bottom: 0;
+    width: 100%;
+    padding: 2rem 0 2rem 0;
+}
+
+.copyright {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.news-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+}

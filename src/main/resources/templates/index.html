@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/fragments.html :: head(page='Hlavní Stránka')"></head>
+
+<body>
+<header th:replace="fragments/fragments.html :: header"></header>
+
+<div class="container">
+
+    <div th:replace="fragments/fragments.html :: alert"></div>
+
+    <div class="jumbotron border border-primary bg-white mt-3 shadow">
+        <h1 class="display-4">Koro-Info</h1>
+        <p class="lead">Vítej na stránce Koro-Info, která slouží ke kvalitnímu informování občanů ohledně Covid-19 v ČR</p>
+    </div>
+
+    <div class="row my-3">
+        <div class="col-12 col-xl-8">
+            <div class="card border-primary shadow mb-2">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Statistiky</h5>
+                    <div class="row">
+                        <div class="col-12 col-xl-6 mb-5 mb-xl-0">
+                            <div class="card-text text-center">
+                                <h6 class="card-title">Za celou dobu</h6>
+                                <p><strong>&#x1F489; Testovaných:</strong> <span id="tested">?</span></p>
+                                <p><strong>&#x1F9A0; Nakažených:</strong> <span id="infected">?</span></p>
+                                <p><strong>❤️ Vyléčených:</strong> <span id="cured">?</span></p>
+                                <p><strong>&#x1F480; Zemřelých:</strong> <span id="dead">?</span></p>
+                            </div>
+
+                        </div>
+                        <div class="col-12 col-xl-6">
+                            <div class="card-text text-center">
+                                <h6 class="card-title">Za den (<span id="day">?. ?.</span>)</h6>
+                                <p><strong>&#x1F489; Testovaných:</strong> <span id="dayTested">?</span></p>
+                                <p><strong>&#x1F9A0; Nakažených:</strong> <span id="dayInfected">?</span></p>
+                                <p><strong>❤️ Vyléčených:</strong> <span id="dayCured">?</span></p>
+                                <p><strong>&#x1F480; Zemřelých:</strong> <span id="dayDead">?</span></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-primary shadow mb-4 d-none d-lg-block">
+                <div class="card-body">
+                    <h5 class="card-title">Graf (za posledních 30 dnů)</h5>
+                    <canvas height="220" id="chart" width="800"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xl-4">
+            <div class="border border-primary p-2 text-center shadow rounded">
+                <div class="embed-responsive mb-1" style="padding-top: 146%">
+                    <iframe class="embed-responsive-item border-0"
+                            th:src="'https://www.instagram.com/p/' + ${chocoAlert.getImageId()} + '/embed'"></iframe>
+                </div>
+                <a>Nejnovější žlutý trojúhelník</a>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="text-center"><strong class="initialism">Novinky</strong></h1>
+
+    <div th:each="news: ${allNews}">
+        <div class="card border-primary shadow mt-3 mb-5">
+            <div class="card-body">
+                <h5><a class="card-title text-decoration-none" th:href="@{/news/{id}(id = ${news.getId()})}" th:text="${news.getTitle()}"></a></h5>
+                <h6 class="card-subtitle mb-2 text-muted" th:text="${news.getFormattedTime()}"></h6>
+                <div class="news-description">
+                    <p class="card-text" th:utext="${news.getText()}"></p>
+                </div>
+                <p class="card-text text-muted text-center my-2">(Více po rozkliknutí)</p>
+            </div>
+            <div class="card-footer text-muted">Author: <span th:text="${news.getAuthor().getFullName()}"></span></div>
+        </div>
+    </div>
+
+
+</div>
+<footer th:replace="fragments/fragments.html :: footer"> </footer>
+</body>
+</html>
