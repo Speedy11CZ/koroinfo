@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/fragments.html :: head(page='400')"></head>
+
+<body>
+<header th:replace="fragments/fragments.html :: header"></header>
+
+<div class="container">
+
+    <div class="d-flex align-items-center justify-content-center" style="height: 85vh">
+        <div class="p-2 bd-highlight text-center">
+            <p><i class="text-primary fas fa-virus fa-10x"></i></p>
+            <h2>400 Chybný dotaz</h2>
+            <a th:href="@{/}">Klikni pro přesměrování na hlavní stránku</a>
+        </div>
+    </div>
+
+</div>
+<footer th:replace="fragments/fragments.html :: footer"> </footer>
+</body>
+</html>

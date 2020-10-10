@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head (page)">
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="language" content="czech">
+    <meta name="author" content="Michal Spišak">
+    <meta name="designer" content="Michal Spišak">
+    <meta name="publisher" content="Michal Spišak">
+    <meta name="web_author" content="Michal Spišak">
+    <meta name="title" th:content="${page} + ' | Koro-Info'">
+    <title th:text="${page} + ' | Koro-Info'"></title>
+    <meta name="theme-color" content="#007bff" />
+    <meta name="description" content="Informace a novinky o koronaviru COVID-19 v České Republice na jednom místě.">
+    <meta name="keywords" content="koronavirus,covid,informace,novinky,erouska,statistiky,korona,covid-19">
+    <meta property="og:url" content="https://koroinfo.nejrychlejsi.eu">
+    <meta property="og:locale" content="cs_CZ">
+    <meta property="og:title" content="Koro-Info">
+    <meta property="og:description" content="Informace a novinky o koronaviru COVID-19 v České Republice na jednom místě.">
+    <meta property="og:image" content="https://koroinfo.nejrychlejsi.eu/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" >
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" integrity="sha512-F5QTlBqZlvuBEs9LQPqc1iZv2UMxcVXezbHzomzS6Df4MZMClge/8+gXrKw2fl5ysdk4rWjR0vKS7NNkfymaBQ==" crossorigin="anonymous"></script>
+    <script crossorigin="anonymous" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script th:src="@{/js/script.js}"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158559570-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158559570-2');
+    </script>
+</head>
+
+<header th:fragment="header">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand">&#x1F9A0; Koro-Info</a>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Otevřít navigaci" class="navbar-toggler"
+                data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Domů</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" th:href="@{/koronavirus}">O koronaviru</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" th:href="@{/erouska}">eRouška</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!--/*@thymesVar id="enabledAlerts" type="java.util.List<cz.speedy.koroinfo.data.entities.Alert>"*/-->
+<div th:fragment="alert" th:each="alert: ${enabledAlerts}">
+    <div class="alert alert-primary mt-3 shadow" role="alert" th:utext="'<strong>' + ${alert.getTitle().toUpperCase()} + '</strong></br>' + ${alert.getDescription()}"></div>
+</div>
+
+<footer th:fragment="footer">
+    <footer class="footer">
+        <div class="container">
+            <div class="copyright text-center">
+                &copy; 2020 Michal Spišak
+            </div>
+        </div>
+    </footer>
+</footer>

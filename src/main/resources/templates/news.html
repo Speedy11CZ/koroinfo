@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/fragments.html :: head(page='Novinky')"></head>
+
+<body>
+<header th:replace="fragments/fragments.html :: header"></header>
+
+<div class="container">
+
+    <div th:replace="fragments/fragments.html :: alert"></div>
+
+    <div class="card border-primary mb-5 shadow">
+        <div class="card-body">
+            <h1 class="card-title text-center font-weight-bold" th:text="${news.getTitle()}"></h1>
+            <hr class="bg-mutes">
+            <div class="card-text" th:utext="${news.getText()}"></div>
+        </div>
+        <div class="card-footer text-muted">
+            Author: <span th:text="${news.getAuthor().getFullName()}"></span>
+            <br>
+            Čas vydání článku: <span th:text="${news.getFormattedTime()}"></span>
+        </div>
+    </div>
+</div>
+<footer th:replace="fragments/fragments.html :: footer"> </footer>
+</body>
+</html>
