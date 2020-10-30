@@ -16,10 +16,7 @@ Koro-Info naleznete aktuálně pomocí [tohoto odkazu](https://koroinfo.nejrychl
 
 ## Projekt Koro-Info na githubu
 Celý systém Koro-Info je naprogramován v javě, stavěn na frameworku Spring.
-Zde na githubu najdete jeho plně funkční verzi, při čemž kód můžete použít pro vzdělávací nebo vývojové účely. 
-Také zde můžete případně přidat issue či vytvořit pull request s opravou nebo funkcí.
-Prosím, nehostujte vlastní kopii stránky Koro-Info pro veřejnost. Použití systému Koro-Info
-je povoleno pouze pro vzdělávací nebo vývojové účely.
+Zde na githubu najdete jeho plně funkční verzi, při čemž kód můžete použít pro vzdělávací účely.
 
 ## Správci projektu
 * [Michal Spišak](https://github.com/Speedy11CZ)
