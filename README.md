@@ -23,3 +23,6 @@ je povoleno pouze pro vzdělávací nebo vývojové účely.
 
 ## Správci projektu
 * [Michal Spišak](https://github.com/Speedy11CZ)
+
+
+**PROJEKT BYL Z DŮVODŮ VYTVOŘENÍ OFICIÁLNÍCH STÁTNÍCH WEBOVEK ZRUŠEN**
